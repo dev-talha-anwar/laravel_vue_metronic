@@ -5,6 +5,9 @@ function ajax(url,type,data = '',button= null,self =null){
 	}
 	if(self !=null){
 		self.$Progress.start();
+		var loader = self.$loading.show({ 
+      	container: self.$refs.formContainer,
+    });
 	}
 	var processData;
 	var contentType;
@@ -68,6 +71,7 @@ function ajax(url,type,data = '',button= null,self =null){
 	.always(function(){
 		l.stop();
 		self.$Progress.finish();
+		loader.hide()
 	});
 }
 function makeerrors(errors){

@@ -5,7 +5,7 @@
         <!-- BEGIN PAGE BASE CONTENT -->
         <div class="row">
             <div class="col-md-12">
-                <div class="portlet box purple ">
+                <div class="portlet box purple vld-parent" ref="formContainer">
                     <div class="portlet-title">
                         <div class="caption">
                         <i class="fa fa-gift"></i> Change General Settings </div>
@@ -72,11 +72,14 @@
                 data:{}
             }
         },
-        created(){
+        mounted(){
             // this.$store.commit('pagecsslinkschange',['/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css']);
             // this.$store.commit('pagejslinkschange',['/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js']);
             // this.$store.commit('pagejschange',"$(function(){$('form input').keydown(function (e) {if (e.keyCode == 13) {e.preventDefault();$('#submitbtn').click();}});});");
             this.$Progress.start();
+            let loader = this.$loading.show({ 
+              container: this.$refs.formContainer,
+            });
             this.$loadScript(window.adminassets+"/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")
             .then(() => {})
             .catch(() => {});
@@ -84,9 +87,11 @@
             .then((data) => {
               this.data = data.data.general;
                 this.$Progress.finish();
+                loader.hide()
             })
             .catch((error) =>{
                 this.$Progress.fail();
+                loader.hide()
             });
         },
         head: {

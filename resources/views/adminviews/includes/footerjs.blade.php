@@ -1,5 +1,6 @@
 
 <script src="{{asset('adminassets')}}/global/plugins/jquery.min.js" type="text/javascript"></script>
+
         {{-- <script src="{{asset('adminassets')}}/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> --}}
         {{-- <script src="{{asset('adminassets')}}/global/plugins/js.cookie.min.js" type="text/javascript"></script> --}}
         {{-- <script src="{{asset('adminassets')}}/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script> --}}
@@ -54,9 +55,8 @@
          <script src="{{asset('adminassets')}}/global/plugins/ladda/spin.min.js" type="text/javascript"></script>
         <script src="{{asset('adminassets')}}/global/plugins/ladda/ladda.min.js" type="text/javascript"></script>
         @routes
-
-        <script src="{{asset('js/admin_app.js')}}" type="text/javascript"></script>
         <script src="{{asset('adminassets')}}/js/main.js" type="text/javascript"></script>
+        <script src="{{asset('js/admin_app.js')}}" type="text/javascript"></script>
 
 
         {{-- <script src="{{asset('adminassets')}}/pages/scripts/ui-sweetalert.min.js" type="text/javascript"></script> --}}

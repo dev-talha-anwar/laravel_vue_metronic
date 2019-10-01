@@ -1751,11 +1751,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   data: function data() {
@@ -1763,10 +1758,9 @@ __webpack_require__.r(__webpack_exports__);
       data: {}
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
-    // ajax(route('admin.edit',this.id),'GET','','',this);
     this.$Progress.start();
     var loader = this.$loading.show({
       container: this.$refs.formContainer
@@ -1874,20 +1868,27 @@ __webpack_require__.r(__webpack_exports__);
       data: {}
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     // this.$store.commit('pagecsslinkschange',['/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css']);
     // this.$store.commit('pagejslinkschange',['/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js']);
     // this.$store.commit('pagejschange',"$(function(){$('form input').keydown(function (e) {if (e.keyCode == 13) {e.preventDefault();$('#submitbtn').click();}});});");
     this.$Progress.start();
+    var loader = this.$loading.show({
+      container: this.$refs.formContainer
+    });
     this.$loadScript(window.adminassets + "/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js").then(function () {})["catch"](function () {});
     axios.get(route('general.index')).then(function (data) {
       _this.data = data.data.general;
 
       _this.$Progress.finish();
+
+      loader.hide();
     })["catch"](function (error) {
       _this.$Progress.fail();
+
+      loader.hide();
     });
   },
   head: {
@@ -1925,15 +1926,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -36815,62 +36807,62 @@ var render = function() {
     _c("div", { staticClass: "page-content" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "portlet light bordered " }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              { ref: "formContainer", staticClass: "portlet-body light" },
-              [
-                _c("div", { staticClass: "tab-content" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane active",
-                      attrs: { id: "tab_1_1" }
-                    },
-                    [
-                      _c("div", {
-                        staticStyle: { display: "none" },
-                        attrs: { id: "errorsdiv" }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "form",
-                        {
-                          staticClass: "ajaxform",
-                          attrs: { autocomplete: "off", role: "form" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "form-group form-md-line-input" },
-                            [
-                              _c("div", { staticClass: "input-icon right" }, [
-                                _c("input", {
-                                  staticClass: "form-control border-purple",
-                                  attrs: { name: "name", type: "text" },
-                                  domProps: { value: _vm.data.name }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "label",
-                                  { attrs: { for: "form_control_1" } },
-                                  [_vm._v("Name")]
-                                ),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "help-block" }, [
-                                  _vm._v("Change Your Name")
-                                ]),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "icon-user" })
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "margiv-top-10" }, [
+          _c(
+            "div",
+            {
+              ref: "formContainer",
+              staticClass: "portlet box purple bordered vld-parent"
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "portlet-body " }, [
+                _c("div", {
+                  staticStyle: { display: "none" },
+                  attrs: { id: "errorsdiv" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    staticClass: "ajaxform form-horizontal form-bordered",
+                    attrs: { autocomplete: "off", role: "form" }
+                  },
+                  [
+                    _c("div", { staticClass: "form-body" }, [
+                      _c("div", { staticClass: "container" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group form-md-line-input" },
+                          [
+                            _c("div", { staticClass: "input-icon right" }, [
+                              _c("input", {
+                                staticClass: "form-control border-purple",
+                                attrs: { name: "name", type: "text" },
+                                domProps: { value: _vm.data.name }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                { attrs: { for: "form_control_1" } },
+                                [_vm._v("Name")]
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "help-block" }, [
+                                _vm._v("Change Your Name")
+                              ]),
+                              _vm._v(" "),
+                              _c("i", { staticClass: "icon-user" })
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "margiv-top-10 form-md-line-input" },
+                          [
                             _c(
                               "button",
                               {
@@ -36889,15 +36881,15 @@ var render = function() {
                                 _c("span", { staticClass: "ladda-spinner" })
                               ]
                             )
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]
-            )
-          ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ]
+          )
         ])
       ])
     ])
@@ -36908,28 +36900,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "portlet-title  tabbable-line" }, [
-      _c("div", { staticClass: "caption caption-md" }, [
-        _c("i", { staticClass: "icon-globe theme-font hide" }),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "caption-subject font-purple bold uppercase" },
-          [_vm._v("Profile Account")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "nav nav-tabs" }, [
-        _c("li", { staticClass: "active border-purple" }, [
-          _c(
-            "a",
-            {
-              staticClass: "font-purple",
-              attrs: { href: "#tab_1_1", "data-toggle": "tab" }
-            },
-            [_vm._v("Personal Info")]
-          )
-        ])
+    return _c("div", { staticClass: "portlet-title" }, [
+      _c("div", { staticClass: "caption" }, [
+        _c("i", { staticClass: "fa fa-gift" }),
+        _vm._v(" \n          Change General Settings \n          ")
       ])
     ])
   },
@@ -36989,137 +36963,146 @@ var render = function() {
     _c("div", { staticClass: "page-content" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "portlet box purple " }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "portlet-body form" }, [
-              _c("div", {
-                staticStyle: { display: "none" },
-                attrs: { id: "errorsdiv" }
-              }),
+          _c(
+            "div",
+            {
+              ref: "formContainer",
+              staticClass: "portlet box purple vld-parent"
+            },
+            [
+              _vm._m(0),
               _vm._v(" "),
-              _c(
-                "form",
-                {
-                  staticClass:
-                    "ajaxform form-horizontal form-bordered updategeneralform",
-                  attrs: { action: "#" }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "form-body" },
-                    [
-                      _c("div", { staticClass: "form-group last" }, [
-                        _c("label", { staticClass: "control-label col-md-3" }, [
-                          _vm._v("Logo")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-md-9" }, [
+              _c("div", { staticClass: "portlet-body form" }, [
+                _c("div", {
+                  staticStyle: { display: "none" },
+                  attrs: { id: "errorsdiv" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    staticClass:
+                      "ajaxform form-horizontal form-bordered updategeneralform",
+                    attrs: { action: "#" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "form-body" },
+                      [
+                        _c("div", { staticClass: "form-group last" }, [
                           _c(
-                            "div",
-                            {
-                              staticClass: "fileinput fileinput-new",
-                              attrs: { "data-provides": "fileinput" }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "fileinput-new thumbnail",
-                                  staticStyle: {
-                                    width: "200px",
-                                    height: "150px"
-                                  }
-                                },
-                                [
-                                  _c("img", {
-                                    attrs: { src: _vm.logo, alt: "" }
-                                  })
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", {
-                                staticClass:
-                                  "fileinput-preview fileinput-exists thumbnail",
-                                staticStyle: {
-                                  "max-width": "200px",
-                                  "max-height": "150px"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _vm._m(1)
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.data.social_links, function(item, index) {
-                        return [
-                          _c("div", { staticClass: "form-group last" }, [
-                            _c(
-                              "label",
-                              { staticClass: "control-label col-md-3" },
-                              [_vm._v(_vm._s(index))]
-                            ),
-                            _vm._v(" "),
+                            "label",
+                            { staticClass: "control-label col-md-3" },
+                            [_vm._v("Logo")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-9" }, [
                             _c(
                               "div",
                               {
-                                staticClass:
-                                  "col-md-9 form-group form-md-line-input has-success"
+                                staticClass: "fileinput fileinput-new",
+                                attrs: { "data-provides": "fileinput" }
                               },
                               [
-                                _c("input", {
-                                  staticClass: "form-control border-purple",
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: index,
-                                    name: index
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "fileinput-new thumbnail",
+                                    staticStyle: {
+                                      width: "200px",
+                                      height: "150px"
+                                    }
                                   },
-                                  domProps: { value: item }
-                                })
+                                  [
+                                    _c("img", {
+                                      attrs: { src: _vm.logo, alt: "" }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass:
+                                    "fileinput-preview fileinput-exists thumbnail",
+                                  staticStyle: {
+                                    "max-width": "200px",
+                                    "max-height": "150px"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm._m(1)
                               ]
                             )
                           ])
-                        ]
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-actions" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            { staticClass: "col-md-offset-3 col-md-9" },
-                            [
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.data.social_links, function(item, index) {
+                          return [
+                            _c("div", { staticClass: "form-group last" }, [
                               _c(
-                                "button",
+                                "label",
+                                { staticClass: "control-label col-md-3" },
+                                [_vm._v(_vm._s(index))]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
                                 {
                                   staticClass:
-                                    "btn purple uppercase mt-ladda-btn ladda-button",
-                                  attrs: {
-                                    id: "submitbtn",
-                                    type: "button",
-                                    "data-style": "zoom-in"
-                                  },
-                                  on: { click: _vm.submitform }
+                                    "col-md-9 form-group form-md-line-input has-success"
                                 },
                                 [
-                                  _vm._m(2),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "ladda-spinner" })
+                                  _c("input", {
+                                    staticClass: "form-control border-purple",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: index,
+                                      name: index
+                                    },
+                                    domProps: { value: item }
+                                  })
                                 ]
                               )
-                            ]
-                          )
+                            ])
+                          ]
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-actions" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-md-offset-3 col-md-9" },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn purple uppercase mt-ladda-btn ladda-button",
+                                    attrs: {
+                                      id: "submitbtn",
+                                      type: "button",
+                                      "data-style": "zoom-in"
+                                    },
+                                    on: { click: _vm.submitform }
+                                  },
+                                  [
+                                    _vm._m(2),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "ladda-spinner" })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
                         ])
-                      ])
-                    ],
-                    2
-                  )
-                ]
-              )
-            ])
-          ])
+                      ],
+                      2
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
         ])
       ])
     ])
@@ -37195,25 +37178,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "page-content-wrapper" }, [
+    _c("div", { staticClass: "page-content" }, [
+      _c(
+        "div",
+        {
+          ref: "formContainer",
+          staticClass: "page-head note note-info vld-parent"
+        },
+        [_vm._m(0)]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-content-wrapper" }, [
-      _c("div", { staticClass: "page-content" }, [
-        _c("div", { staticClass: "page-head note note-info" }, [
-          _c("div", { staticClass: "page-title" }, [
-            _c("h1", [_vm._v("\n                Welcome\n                ")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12 col-xs-12 col-sm-12" })
-        ])
-      ])
+    return _c("div", { staticClass: "page-title" }, [
+      _c("h1", [_vm._v("\n                Welcome\n                ")])
     ])
   }
 ]
@@ -52401,7 +52385,8 @@ Vue.use(vue_plugin_load_script__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var loadingoptions = {
   loader: 'bars',
   color: '#8e44ad',
-  'is-full-page': false
+  zIndex: 999,
+  backgroundColor: "#ddd"
 };
 Vue.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default.a, loadingoptions);
 var progressbaroptions = {

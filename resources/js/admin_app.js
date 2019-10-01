@@ -14,7 +14,8 @@ Vue.use(LoadScript);
 const loadingoptions = {
     loader:'bars',
     color: '#8e44ad',
-    'is-full-page':false
+    zIndex: 999,
+    backgroundColor: "#ddd"
 }
 Vue.use(loading,loadingoptions);
 const progressbaroptions = {
