@@ -12,7 +12,7 @@
                     </div>
                     <div class="portlet-body form">
                         <div class="" id="errorsdiv" style="display: none;"></div>
-                        <form action="#" class="ajaxform form-horizontal form-bordered updategeneralform" >
+                        <form action="#" class="ajaxform form-horizontal form-bordered " >
                             <div class="form-body">
                                 <div class="form-group last">
                                     <label class="control-label col-md-3">Logo</label>
@@ -35,7 +35,11 @@
                                         <div class="form-group last">
                                             <label class="control-label col-md-3">{{index}}</label>
                                             <div class="col-md-9 form-group form-md-line-input has-success">
-                                            <input type="text" class="form-control border-purple" :placeholder="index" :name="index" :value="item">
+                                                <div class="input-icon right">
+                                                <input type="text" class="form-control border-purple" :placeholder="index" :name="index" :value="item">
+                                                <i class="icon-star font-purple"></i>
+                                              </div>
+                                            
                                             </div>
                                         </div>
                                     </template>

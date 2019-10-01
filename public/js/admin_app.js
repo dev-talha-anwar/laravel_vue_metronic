@@ -1751,6 +1751,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   data: function data() {
@@ -1765,8 +1772,10 @@ __webpack_require__.r(__webpack_exports__);
     var loader = this.$loading.show({
       container: this.$refs.formContainer
     });
+    this.$loadScript(window.adminassets + "/global/plugins/bootstrap-pwstrength/pwstrength-bootstrap.min.js").then(function () {})["catch"](function () {});
     axios.get(route('admin.edit', this.id)).then(function (data) {
       _this.data = data.data.admin;
+      $('#password_strength').pwstrength();
 
       _this.$Progress.finish();
 
@@ -1795,6 +1804,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -36816,7 +36829,7 @@ var render = function() {
             [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "portlet-body " }, [
+              _c("div", { staticClass: "portlet-body form" }, [
                 _c("div", {
                   staticStyle: { display: "none" },
                   attrs: { id: "errorsdiv" }
@@ -36830,59 +36843,60 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-body" }, [
-                      _c("div", { staticClass: "container" }, [
+                      _c("div", { staticClass: "form-group last" }, [
+                        _c("label", { staticClass: "control-label col-md-3" }, [
+                          _vm._v("Name")
+                        ]),
+                        _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "form-group form-md-line-input" },
+                          {
+                            staticClass:
+                              "col-md-9 form-group form-md-line-input has-success"
+                          },
                           [
                             _c("div", { staticClass: "input-icon right" }, [
                               _c("input", {
                                 staticClass: "form-control border-purple",
-                                attrs: { name: "name", type: "text" },
+                                attrs: { type: "text", name: "name" },
                                 domProps: { value: _vm.data.name }
                               }),
                               _vm._v(" "),
-                              _c(
-                                "label",
-                                { attrs: { for: "form_control_1" } },
-                                [_vm._v("Name")]
-                              ),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "help-block" }, [
-                                _vm._v("Change Your Name")
-                              ]),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "icon-user" })
+                              _c("i", { staticClass: "icon-user font-purple" })
                             ])
                           ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "margiv-top-10 form-md-line-input" },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn purple uppercase mt-ladda-btn ladda-button",
-                                attrs: {
-                                  id: "submitbtn",
-                                  type: "button",
-                                  "data-style": "zoom-in"
-                                },
-                                on: { click: _vm.submitform }
-                              },
-                              [
-                                _vm._m(2),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "ladda-spinner" })
-                              ]
-                            )
-                          ]
                         )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-actions" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-md-offset-3 col-md-9" },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn purple uppercase mt-ladda-btn ladda-button",
+                                  attrs: {
+                                    id: "submitbtn",
+                                    type: "button",
+                                    "data-style": "zoom-in"
+                                  },
+                                  on: { click: _vm.submitform }
+                                },
+                                [
+                                  _vm._m(2),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "ladda-spinner" })
+                                ]
+                              )
+                            ]
+                          )
+                        ])
                       ])
                     ])
                   ]
@@ -36902,8 +36916,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "portlet-title" }, [
       _c("div", { staticClass: "caption" }, [
-        _c("i", { staticClass: "fa fa-gift" }),
-        _vm._v(" \n          Change General Settings \n          ")
+        _c("i", { staticClass: "icon-users" }),
+        _vm._v(" \n              Edit Profile \n          ")
       ])
     ])
   },
@@ -36911,22 +36925,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "form-group form-md-line-input password-strength" },
-      [
-        _c("div", { staticClass: "input-icon right" }, [
-          _c("label", { attrs: { for: "control-label" } }, [
-            _vm._v("Enter New Password")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control border-purple",
-            attrs: { name: "password", type: "text", id: "password_strength" }
-          })
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "form-group last" }, [
+      _c("label", { staticClass: "control-label col-md-3" }, [
+        _vm._v("Enter New Password")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-9 form-group form-md-line-input has-success" },
+        [
+          _c("div", { staticClass: "input-icon right" }, [
+            _c("input", {
+              staticClass: "form-control border-purple",
+              attrs: { name: "password", type: "text", id: "password_strength" }
+            }),
+            _vm._v(" "),
+            _c("i", { staticClass: "icon-key font-purple" })
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -36934,7 +36952,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "ladda-label" }, [
       _c("i", { staticClass: "glyphicon glyphicon-saved" }),
-      _vm._v(" Save")
+      _vm._v(
+        "\n                              Update\n                          "
+      )
     ])
   }
 ]
@@ -36981,8 +37001,7 @@ var render = function() {
                 _c(
                   "form",
                   {
-                    staticClass:
-                      "ajaxform form-horizontal form-bordered updategeneralform",
+                    staticClass: "ajaxform form-horizontal form-bordered ",
                     attrs: { action: "#" }
                   },
                   [
@@ -37052,15 +37071,26 @@ var render = function() {
                                     "col-md-9 form-group form-md-line-input has-success"
                                 },
                                 [
-                                  _c("input", {
-                                    staticClass: "form-control border-purple",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: index,
-                                      name: index
-                                    },
-                                    domProps: { value: item }
-                                  })
+                                  _c(
+                                    "div",
+                                    { staticClass: "input-icon right" },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "form-control border-purple",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: index,
+                                          name: index
+                                        },
+                                        domProps: { value: item }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("i", {
+                                        staticClass: "icon-star font-purple"
+                                      })
+                                    ]
+                                  )
                                 ]
                               )
                             ])
