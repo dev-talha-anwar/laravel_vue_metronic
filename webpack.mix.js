@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -15,3 +14,10 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 mix.js('resources/js/admin_app.js', 'public/js')
    .sass('resources/sass/admin_app.scss', 'public/css');
+mix.webpackConfig({    
+  resolve: {      
+    alias: {
+ 	"@": __dirname + '/resources/js'      
+    },    
+  },  
+})

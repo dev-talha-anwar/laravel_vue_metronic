@@ -80,7 +80,6 @@ export default {
     axios.get(route('admin.edit',this.id))
     .then((data) => {
       this.data = data.data.admin;
-
       $('#password_strength').pwstrength();
       this.$Progress.finish();
       loader.hide();

@@ -52396,9 +52396,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _admin_components_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin_components/index */ "./resources/js/admin_components/index.vue");
-/* harmony import */ var _admin_components_admin_edit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin_components/admin/edit */ "./resources/js/admin_components/admin/edit.vue");
-/* harmony import */ var _admin_components_general_edit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin_components/general/edit */ "./resources/js/admin_components/general/edit.vue");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/routes/routes */ "./resources/js/routes/routes.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -52424,56 +52422,15 @@ var progressbaroptions = {
   failedColor: '#ff0000',
   thickness: '5px'
 };
-Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_3___default.a, progressbaroptions); // Vue.use(Vuex)
-// const store = new Vuex.Store({
-//   state: {
-//     pagecsslinks: [],
-//     pagecss:"",
-//     pagejslinks: [],
-//     pagejs:""
-//   },
-//   mutations: {
-//     pagecsslinkschange (state,links) {
-//       state.pagecsslinkschange = links;
-//     },
-//     pagecsschange(state,css){
-//         state.pagecss = css;
-//     },
-//     pagejslinkschange(state,links){
-//         state.pagejslinkschange = links;
-//     },
-//     pagejschange(state,js){
-//         state.pagejs = js;
-//     }
-//   }
-// })
-// Vue.component('headercontent', require('./admin_components/includes/headercontent.vue').default);
-
-
-
+Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_3___default.a, progressbaroptions);
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
-  routes: [{
-    path: '/admin',
-    name: 'index',
-    component: _admin_components_index__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }, {
-    path: '/edit/:id',
-    name: 'edit',
-    component: _admin_components_admin_edit__WEBPACK_IMPORTED_MODULE_7__["default"],
-    props: true
-  }, {
-    path: '/general/edit',
-    name: 'edit/general',
-    component: _admin_components_general_edit__WEBPACK_IMPORTED_MODULE_8__["default"],
-    props: true
-  }]
+  routes: _routes_routes__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
 var app = new Vue({
   el: '#adminapp',
-  router: router // store
-
+  router: router
 });
 
 /***/ }),
@@ -52740,6 +52697,70 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/routes/admin.js":
+/*!**************************************!*\
+  !*** ./resources/js/routes/admin.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _admin_components_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/admin_components/index */ "./resources/js/admin_components/index.vue");
+/* harmony import */ var _admin_components_admin_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin_components/admin/edit */ "./resources/js/admin_components/admin/edit.vue");
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  path: '/admin',
+  name: 'index',
+  component: _admin_components_index__WEBPACK_IMPORTED_MODULE_0__["default"]
+}, {
+  path: '/edit/:id',
+  name: 'edit',
+  component: _admin_components_admin_edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  props: true
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/routes/general.js":
+/*!****************************************!*\
+  !*** ./resources/js/routes/general.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _admin_components_general_edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/admin_components/general/edit */ "./resources/js/admin_components/general/edit.vue");
+
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  path: '/general/edit',
+  name: 'edit/general',
+  component: _admin_components_general_edit__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: true
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/routes/routes.js":
+/*!***************************************!*\
+  !*** ./resources/js/routes/routes.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _routes_admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/routes/admin */ "./resources/js/routes/admin.js");
+/* harmony import */ var _routes_general__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/routes/general */ "./resources/js/routes/general.js");
+var routes = [];
+
+
+/* harmony default export */ __webpack_exports__["default"] = (routes.concat(_routes_admin__WEBPACK_IMPORTED_MODULE_0__["default"], _routes_general__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

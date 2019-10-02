@@ -24,57 +24,13 @@ const progressbaroptions = {
   thickness: '5px',  
 }
 Vue.use(VueProgressBar, progressbaroptions)
-// Vue.use(Vuex)
-// const store = new Vuex.Store({
-//   state: {
-//     pagecsslinks: [],
-//     pagecss:"",
-//     pagejslinks: [],
-//     pagejs:""
-//   },
-//   mutations: {
-//     pagecsslinkschange (state,links) {
-//       state.pagecsslinkschange = links;
-//     },
-//     pagecsschange(state,css){
-//         state.pagecss = css;
-//     },
-//     pagejslinkschange(state,links){
-//         state.pagejslinkschange = links;
-//     },
-//     pagejschange(state,js){
-//         state.pagejs = js;
-//     }
-//   }
-// })
-// Vue.component('headercontent', require('./admin_components/includes/headercontent.vue').default);
-import adminindex from './admin_components/index'
-import adminedit from './admin_components/admin/edit'
-import generaledit from './admin_components/general/edit'
+import routes from '@/routes/routes';
+
 const router = new VueRouter({
     mode: 'history',
-    routes: [
-        {
-            path: '/admin',
-            name: 'index',
-            component: adminindex
-        },
-        {
-            path: '/edit/:id',
-            name: 'edit',
-            component: adminedit,
-            props:true
-        },
-        {
-        	path: '/general/edit',
-        	name: 'edit/general',
-        	component: generaledit,
-            props:true
-        }
-    ],
+    routes: routes
 });
 const app = new Vue({
     el: '#adminapp',
-    router,
-    // store
+    router, 
 });
