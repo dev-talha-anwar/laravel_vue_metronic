@@ -15,6 +15,7 @@
         "laravel/passport": "^7.5",
         "laravel/tinker": "^1.0",
         "laravelgems/blade-escape": "^1.0",
+        "smartins/passport-multiauth": "^4.1",
         "spatie/laravel-permission": "^2.37",
         "tightenco/ziggy": "^0.8.0"
     },

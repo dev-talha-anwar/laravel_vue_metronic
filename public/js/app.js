@@ -47771,9 +47771,9 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\laravel_vue_metronic\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\xampp\htdocs\laravel_vue_metronic\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\laravel_vue_metronic\resources\sass\admin_app.scss */"./resources/sass/admin_app.scss");
+__webpack_require__(/*! C:\xamp\htdocs\resources\laravel with vue metronic\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xamp\htdocs\resources\laravel with vue metronic\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\xamp\htdocs\resources\laravel with vue metronic\resources\sass\admin_app.scss */"./resources/sass/admin_app.scss");
 
 
 /***/ })

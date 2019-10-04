@@ -52771,7 +52771,7 @@ var routes = [];
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\laravel_vue_metronic\resources\js\admin_app.js */"./resources/js/admin_app.js");
+module.exports = __webpack_require__(/*! C:\xamp\htdocs\resources\laravel with vue metronic\resources\js\admin_app.js */"./resources/js/admin_app.js");
 
 
 /***/ })

@@ -5,12 +5,13 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use SMartins\PassportMultiauth\HasMultiAuthApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
     use Notifiable;
-    use HasRoles;
+    use HasRoles,HasMultiAuthApiTokens;
     protected $guard = "admin";
     /**
      * The attributes that are mass assignable.
