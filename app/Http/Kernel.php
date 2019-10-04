@@ -66,7 +66,6 @@ class Kernel extends HttpKernel
         'ajax' => OnlyAjax::class,
         'oauth.providers' => \SMartins\PassportMultiauth\Http\Middleware\AddCustomProvider::class,
     ];
-
     /**
      * The priority-sorted list of middleware.
      *

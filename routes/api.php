@@ -22,5 +22,5 @@ use Illuminate\Http\Request;
 // 	Route::apiResource('/boards', 'API\BoardController');
 // });
 Route::group(['prefix' =>'admin-api'], function () {
-	Route::apiResource('/boards', 'API\BoardController');
+	Route::apiResource('boards', 'API\BoardController');
 });
